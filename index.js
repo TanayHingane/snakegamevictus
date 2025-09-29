@@ -1,7 +1,12 @@
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
+const timeElement = document.querySelector(".time");
 const controls = document.querySelectorAll(".controls i");
+const navbar = document.querySelector(".navbar");
+const modal = document.querySelector(".modal");
+const playAgainBtn = document.querySelector(".play-again");
+const startBtn = document.querySelector(".start-btn");
 
 let gameOver = false;
 let foodX, foodY;
@@ -10,6 +15,8 @@ let velocityX = 0, velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
 let score = 0;
+let time = 0;
+let timeIntervalId;
 
 // Get high score from local storage
 
@@ -25,8 +32,20 @@ const updateFoodPosition = () => {
 
 const handleGameOver = () => {
     clearInterval(setIntervalId);
-    alert("Game Over! Press OK to replay...");
-    location.reload();
+    stopTime();
+    modal.style.display = "flex";
+    navbar.style.display = "flex";
+}
+
+const startTime = () => {
+    timeIntervalId = setInterval(() => {
+        time++;
+        timeElement.innerText = `Time: ${time}s`;
+    }, 1000);
+}
+
+const stopTime = () => {
+    clearInterval(timeIntervalId);
 }
 
 // Change velocity value based on key press
@@ -97,6 +116,16 @@ const initGame = () => {
     playBoard.innerHTML = html;
 }
 
-updateFoodPosition();
-setIntervalId = setInterval(initGame, 100);
-document.addEventListener("keyup", changeDirection);
+const startGame = () => {
+    navbar.style.display = "none";
+    updateFoodPosition();
+    setIntervalId = setInterval(initGame, 100);
+    document.addEventListener("keyup", changeDirection);
+    startTime();
+}
+
+startBtn.addEventListener("click", startGame);
+
+playAgainBtn.addEventListener("click", () => {
+    location.reload();
+});

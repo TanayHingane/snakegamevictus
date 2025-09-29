@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="snake.png" />
     <title>Snake Game | Victus03</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
+    <nav class="navbar">
+      <h1>Snake Game</h1>
+      <button class="start-btn">Start Game</button>
+    </nav>
     <div class="wrapper">
-        <div class="game-details">
-            <span class="score">Score: 0</span>
-            <span class="high-score">High Score: 0</span>
-        </div>
+      <div class="game-details">
+        <span class="score">Score: 0</span>
+        <span class="time">Time: 0s</span>
+        <span class="high-score">High Score: 0</span>
+      </div>
 
-        <div class="play-board"></div>
+      <div class="play-board"></div>
 
-        <div class="controls">
-            <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
-            <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
-            <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
-            <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
-        </div>
-        
+      <div class="controls">
+        <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
+        <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
+        <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
+        <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <h2>Game Over!</h2>
+        <button class="play-again">Play Again</button>
+      </div>
     </div>
     <!--javascript-->
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
